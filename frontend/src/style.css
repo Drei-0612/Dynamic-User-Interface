@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: medium;
+  font-weight: normal;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: rgba(1, 1, 1, 0.1);
+}
+/* Header styles */
+#headerContainer > h1 {
+  font-size: large;
+  font-weight: bolder;
+  color: rgb(41, 41, 134);
+}
+
+#headerContainer > small {
+  color: rgb(63, 156, 187);
+  font-weight: bold;
+  font-size: small;
+}
+
+#headerContainer {
+  margin: 30px;
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.4);
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+#formContainer {
+  margin: 30px;
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.4);
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+#formContainer > #studentForm > .input-field {
+  display: flex;
+  flex-direction: column;
+}
+
+#formContainer > #studentForm > .input-field > label {
+  font-weight: 500;
+  color: rgb(41, 41, 134);
+}
+
+#formContainer > #studentForm > .input-field > input {
+  font-weight: bold;
+}
+
+#formContainer > #studentForm :nth-last-child(1) > button {
+  min-width: 120px;
+  padding: 5px 10px;
+  margin-top: 20px;
+}
+
+#formContainer > #studentForm :nth-last-child(1) {
+  display: flex;
+  justify-content: center;
+}
+
+#listContainer {
+  margin: 30px;
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.4);
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+#listContainer > .list-item {
+  display: grid;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: lab(250, 250, 250);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8);
+}
+
+#listContainer > .list-item > h2 {
+  font-weight: 600;
+}
+
+#listContainer > .list-item > p {
+  font-weight: 400;
+  margin-bottom: 3px;
+}
+
+#listContainer > .list-item > button {
+  font-weight: 450;
+}
+
+#listContainer > h1 {
+  grid-column: span 12;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (width <= 320px) {
+  #listContainer > .list-item {
+    grid-column: span 12;
+  }
+}
+
+@media (width > 1000px) {
+  #listContainer > .list-item {
+    grid-column: span 2;
+  }
+}
+
+@media (width > 320px) and (width < 1000px) {
+  #listContainer > .list-item {
+    grid-column: span 4;
+  }
+}
