@@ -11,7 +11,7 @@ export const insert = async(book) =>{
         [book.name, book.author]
     );
 
-    return result.insert;
+    return result.insertId;
 }
 
 //update
