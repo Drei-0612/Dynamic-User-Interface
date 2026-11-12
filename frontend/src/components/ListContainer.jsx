@@ -6,7 +6,7 @@ const ListComponent = ({ data }) => {
           <article key={student.id} className="list-item">
             <h1>{student.name}</h1>
             <p>{student.program}</p>
-            <small>{student.srcode}</small>
+            <small>{student.srCode}</small>
             <button>Delete</button>
           </article>
         ))}

@@ -1,17 +1,42 @@
+import { useEffect, useState } from "react";
 import FormContainer from "../components/FormContainer";
 import HeaderContainer from "../components/HeaderContainer";
 import ListContainer from "../components/ListContainer";
 
+
+
 const StudentPage = () => {
-  const students = [
-    { id: 1, srcode: "00-19268", name: "Klein Moretti", program: "BSIT" },
-    { id: 2, srcode: "11-19268", name: "Audrey Hall", program: "BSIT" },
-    { id: 3, srcode: "12-19268", name: "Alger Wilson", program: "BSIT" },
-  ];
+  const [students, setStudents] = useState([]);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const getStudents = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:3000/student/", {
+          signal: controller.signal,
+        });
+        if (!response.ok) {
+          throw new Error(`Unable to fetch students (${response.status})`);
+        }
+        setStudents(await response.json());
+      } catch (e) {
+        if (e.name !== "AbortError") {
+          setError(e.message);
+        }
+      }
+    };
+
+    getStudents();
+    return () => controller.abort();
+  }, []);
+
   return (
     <>
       <HeaderContainer />
       <FormContainer />
+      {error && <p role="alert">Hindi ma-load ang mga estudyante: {error}</p>}
       <ListContainer data={students} />
     </>
   );
